@@ -1,0 +1,26 @@
+extends layout
+block content
+	.container
+		.container-left
+			textarea 
+			#send 提交
+		.container-right
+			iframe(src='/show', frameborder=0)
+	script.
+		$(function() {
+			$('#send').on('click', function(e) {
+				var text = $('textarea').val();
+				$.ajax({
+					url: '/save',
+					method: 'GET',
+					data: {text: text},
+					success: function(data) {
+						console.log(11);
+						console.log(data);
+						$('iframe').attr('src', $('iframe').attr('src'));
+					}
+				});
+			});
+		});
+
+

@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	margin: auto;
+	/*padding: 20px 0;*/
+	height: 100vh;
+}
+
+.container .container-left {
+	float: left;
+	display: block;
+	width: 50%;
+	height: 60%;
+}
+
+.container .container-left textarea{
+	width: 100%;
+	height: 100%;
+	font-size: 22px;
+}
+
+.container .container-right {
+	float: right;
+	display: block;
+	width: 50%;
+	height: 60%;
+}
+.container .container-right iframe{
+	width: 100%;
+	height: 100%;
+}
+
+#send {
+	display: inline-block;
+	border: 1px solid #ccc;
+	width: 50px;
+}
