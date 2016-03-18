@@ -5,9 +5,36 @@ block content
 			textarea 
 			#send 提交
 		.container-right
-			iframe(src='/show', frameborder=0)
+			iframe(src='/show.html', frameborder=0)
 	script.
 		$(function() {
+
+
+			var t = '\
+		<html>\n\
+			<head>\n\
+			</head>\n\
+			<body>\n\
+				<h1>Hello World</h1>\n\
+			</body>\n\
+		</html>'
+			$('textarea').text(t);
+
+			$("textarea").on('keydown',function(e){
+			    if(e.keyCode == 9){
+			        e.preventDefault();
+			        var indent = '    ';
+			        var start = this.selectionStart;
+			        var end = this.selectionEnd;
+			        var selected = window.getSelection().toString();
+			        selected = indent + selected.replace(/\n/g,'\n'+indent);
+			        this.value = this.value.substring(0,start) + selected + this.value.substring(end);
+			        this.setSelectionRange(start+indent.length,start+selected.length);
+			    }
+			})
+
+
+
 			$('#send').on('click', function(e) {
 				var text = $('textarea').val();
 				$.ajax({
@@ -15,12 +42,12 @@ block content
 					method: 'GET',
 					data: {text: text},
 					success: function(data) {
-						console.log(11);
-						console.log(data);
 						$('iframe').attr('src', $('iframe').attr('src'));
 					}
 				});
 			});
+			$('#send').trigger('click');
 		});
+		
 
 

@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/save', function(req, res, next) {
 	var text = req.query.text || '<h1>请输入</h1>';
-	var show_path = path.join(__dirname, '../views/show.jade');
+	var show_path = path.join(__dirname, '../public/show.html');
 	fs.writeFileSync(show_path, text);
 	res.send({
 		message: 'ok',
