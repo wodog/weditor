@@ -1,8 +1,12 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/javascripts/jquery.min.js')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='/javascripts/jquery.min.js')
+		link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css")
+		script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js")
+		script.
+			hljs.initHighlightingOnLoad();
+	body
+		block content

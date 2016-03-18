@@ -7,6 +7,12 @@ block content
 			iframe(src='/show.html', frameborder=0)
 		#send
 			a 提交
+
+
+
+
+
+			
 	script.
 		$(function() {
 
@@ -18,14 +24,14 @@ block content
 			<body>\n\
 				<h1>Hello World</h1>\n\
 			</body>\n\
-		</html>'
+		</html>';
 			$('textarea').text(t);
 
 			// 绑定tab键缩进
 			$("textarea").on('keydown',function(e){
 			    if(e.keyCode == 9){
 			        e.preventDefault();
-			        var indent = '    ';
+			        var indent = '\t';
 			        var start = this.selectionStart;
 			        var end = this.selectionEnd;
 			        var selected = window.getSelection().toString();
@@ -34,10 +40,6 @@ block content
 			        this.setSelectionRange(start+indent.length,start+selected.length);
 			    }
 			})
-			/**
-			 *
-			 */
-			 console.log(1)
 
 			// 绑定点击提交
 			$('#send').on('click', function(e) {
@@ -52,7 +54,6 @@ block content
 				});
 			});
 
-			// 出发点击提交
 			$('#send').trigger('click');
 		});
 		
