@@ -3,13 +3,14 @@ block content
 	.container
 		.container-left
 			textarea 
-			#send 提交
 		.container-right
 			iframe(src='/show.html', frameborder=0)
+		#send
+			a 提交
 	script.
 		$(function() {
 
-
+			// 定义默认界面
 			var t = '\
 		<html>\n\
 			<head>\n\
@@ -20,6 +21,7 @@ block content
 		</html>'
 			$('textarea').text(t);
 
+			// 绑定tab键缩进
 			$("textarea").on('keydown',function(e){
 			    if(e.keyCode == 9){
 			        e.preventDefault();
@@ -32,9 +34,12 @@ block content
 			        this.setSelectionRange(start+indent.length,start+selected.length);
 			    }
 			})
+			/**
+			 *
+			 */
+			 console.log(1)
 
-
-
+			// 绑定点击提交
 			$('#send').on('click', function(e) {
 				var text = $('textarea').val();
 				$.ajax({
@@ -46,6 +51,8 @@ block content
 					}
 				});
 			});
+
+			// 出发点击提交
 			$('#send').trigger('click');
 		});
 		
