@@ -1,13 +1,16 @@
 # weditor
-web editor
+
+web editor online
 
 ## Why
 
 create a html file, edit it , brower it is so slow, isn't it?
-maybe we just want test something.
+
+maybe we just want to test something.
+
 online editor **weditor** will resolve it.
 
-## Useage
+## Usage
 
 ```bash
 git clone https://github.com/wodog/weditor
