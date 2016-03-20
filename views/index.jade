@@ -19,11 +19,11 @@ block content
 			// 定义默认界面
 			var t = '\
 		<html>\n\
-			<head>\n\
-			</head>\n\
-			<body>\n\
-				<h1>Hello World</h1>\n\
-			</body>\n\
+		  <head>\n\
+		  </head>\n\
+		  <body>\n\
+		    <h1>Hello World</h1>\n\
+		  </body>\n\
 		</html>';
 			$('textarea').text(t);
 
@@ -31,13 +31,16 @@ block content
 			$("textarea").on('keydown',function(e){
 			    if(e.keyCode == 9){
 			        e.preventDefault();
-			        var indent = '\t';
+			        var indent = '  ';
 			        var start = this.selectionStart;
 			        var end = this.selectionEnd;
+			        console.log(e);
 			        var selected = window.getSelection().toString();
 			        selected = indent + selected.replace(/\n/g,'\n'+indent);
+			        
 			        this.value = this.value.substring(0,start) + selected + this.value.substring(end);
 			        this.setSelectionRange(start+indent.length,start+selected.length);
+			        console.log(this.value);
 			    }
 			})
 
